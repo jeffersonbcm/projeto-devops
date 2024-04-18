@@ -15,31 +15,10 @@ spec:
   selector:
     app: webservice
   ports:
-  - protocol: TCP
-    port: 8090
-    targetPort: 8080
-
----
-
-apiVersion: v1
-kind: Pod
-metadata:
-  name: jefferson-app
-  namespace: jeffersondevops
-  labels:
-    app: webservice
-spec:
-  containers:
-  - name: jefferson-app
-    image: jeffersonbcm/jefferson-app:0.1
-    livenessProbe:
-      httpGet:
-        path: /
-        port: 8080
-    readinessProbe:
-      httpGet:
-        path: /
-        port: 8080
+    - protocol: TCP
+      port: 8090
+      targetPort: 8080
+      nodePort: 30980
 
 ---
 
